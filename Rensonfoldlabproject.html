@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.K.F Books</title>
+</head>
+<body style="background-color:#212022;">
+    <!-- Rensonfolds Laboratory Video -->
+    <video id="rensonfolds-video" 
+        style="
+        width: 100%;
+        height: auto;
+        max-height: 600px;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+        padding: 0;
+        "
+        autoplay
+        loop
+        muted
+        playsinline
+        webkit-playsinline>
+        <source src="Rensonfolds Labratory Project 14th Jan 2026\Rensonfolds laboratory part 1 vid.mp4" type="video/mp4">
+       
+    </video>
+
+    <!-- Navigation Bar with Logo and Tabs -->
+<div id="navbar" style="
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 10px;
+    background-color: #000000;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, padding 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+">
+    <!-- Logo -->
+    <a href="index.html" style="text-decoration: none;">
+        <img id="navbar-logo" src="SKF Logo.PNG" alt="S.K.F Home" style="width: 80px; height: 80px; cursor: pointer; transition: width 0.3s ease, height 0.3s ease;">
+    </a>
+    
+    <!-- Navigation Tabs -->
+    <div style="display: flex; gap: 30px; align-items: center; overflow: hidden; white-space: nowrap;">
+        <a href="abouttab.html" style="
+            color: #cdcdcd;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            text-decoration: none;
+            font-style: italic;
+            cursor: pointer;
+            transition: color 0.3s, font-size 0.3s;
+        "
+        onmouseover="this.style.color='#d4c5e0'" 
+        onmouseout="this.style.color='#cdcdcd'">
+            About
+        </a>
+        
+        <a href="Communitytab.html" style="
+            color: #cdcdcd;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            text-decoration: none;
+            font-style: italic;
+            cursor: pointer;
+            transition: color 0.3s, font-size 0.3s;
+        "
+        onmouseover="this.style.color='#d4c5e0'" 
+        onmouseout="this.style.color='#cdcdcd'">
+            Community
+        </a>
+        
+        <a href="Departmentstab.html" style="
+            color: #cdcdcd;
+            font-family: Georgia, serif;
+            font-size: 18px;
+            text-decoration: none;
+            font-style: italic;
+            cursor: pointer;
+            transition: color 0.3s, font-size 0.3s;
+        "
+        onmouseover="this.style.color='#d4c5e0'" 
+        onmouseout="this.style.color='#cdcdcd'">
+            Departments
+        </a>
+    </div>
+</div>
+
+    <script>
+        const video = document.getElementById('rensonfolds-video');
+        const navbar = document.getElementById('navbar');
+        const navbarLogo = document.getElementById('navbar-logo');
+        const navLinks = navbar.querySelectorAll('a[href]');
+        
+        let isScrolled = false;
+        
+        // Handle scroll events
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                if (!isScrolled) {
+                    isScrolled = true;
+                    // Make navbar thin with full opacity
+                    video.pause();
+                    navbar.style.padding = '3px 10px';
+                    navbarLogo.style.width = '40px';
+                    navbarLogo.style.height = '40px';
+                    navLinks.forEach(link => {
+                        link.style.fontSize = '14px';
+                    });
+                    navbar.style.opacity = '1';
+                }
+            } else {
+                if (isScrolled) {
+                    isScrolled = false;
+                    // Reset navbar to normal state with 70% opacity while video visible
+                    video.play();
+                    navbar.style.padding = '3px 10px';
+                    navbarLogo.style.width = '80px';
+                    navbarLogo.style.height = '80px';
+                    navLinks.forEach(link => {
+                        link.style.fontSize = '18px';
+                    });
+                    navbar.style.opacity = '0.7';
+                }
+            }
+        });
+        
+        // Intersection Observer to play/pause video
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && window.scrollY < 100) {
+                    video.play();
+                    navbar.style.opacity = '0.7';
+                } else if (!entry.isIntersecting || window.scrollY >= 100) {
+                    video.pause();
+                    if (window.scrollY >= 100) {
+                        navbar.style.opacity = '1';
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(video);
+    </script>
+
+    <div style="
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    ">
+        <!-- Text Content -->
+        <div style="flex: 1; padding-right: 20px;">
+            <h2 style="
+                color: rgb(127, 37, 139);
+                font-size: 30px;
+                font-family: sans-serif;
+                font-weight: bold;
+                text-align: left;
+                margin: 0 0 15px 0;
+                text-shadow: 0 0 10px rgb(84, 39, 90), 0 0 20px rgb(233, 133, 255), 0 0 30px rgba(127, 37, 139, 0.5);
+            ">
+                You are invited to observe Rensonfold laboratory. Behold the peculiar visualisations of the inventors mind...
+            </h2>
+            
+            <img src="Rensonfolds Labratory Project 14th Jan 2026/Rensonfolds lab heart1.jpg" alt="Rensonfolds Lab Heart" 
+                style="
+                width: 650px;
+                height: auto;
+                display: block;
+                margin-top: 20px;
+                "
+            >
+            
+            <img src="Rensonfolds Labratory Project 14th Jan 2026/Rensonfolds lab image 4.jpg" alt="Rensonfolds Lab Image 4" 
+                style="
+                width: 650px;
+                height: auto;
+                display: block;
+                margin-top: 20px;
+                "
+            >
+        </div>
+
+        <!-- Image -->
+        <div style="flex: 0 0 auto;">
+            <img src="Rensonfolds Labratory Project 14th Jan 2026/RENSONFOLDS LABORATORY.jpeg" alt="Rensonfolds Laboratory" 
+                style="
+                width: 800px;
+                height: auto;
+                display: block;
+                "
+            >
+            <p style="
+                color: rgb(166, 165, 166);
+                font-size: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-style: italic;
+                font-weight: bold;
+                text-align: left;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            ">
+                Rensonfolds Laboratory By S.K.F Art - 14th Jan 2026
+            </p>
+            
+            <img src="Rensonfolds Labratory Project 14th Jan 2026/Rensonfolds lab head and jar 1.jpg" alt="Rensonfolds Lab Head and Jar" 
+                style="
+                width: 800px;
+                height: auto;
+                display: block;
+                margin-top: 20px;
+                "
+            >
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+<p style="
+    font-size: 15px;
+    font-family: Georgia, serif;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+">
+    Join Our C²'s (Comment Conversations) On Our Art Social Media:
+    <a href="https://www.instagram.com/art_by_s.kf" target="_blank" style="color: #bea8c4; text-decoration: none;">Instagram</a> 
+
+</p>
+
+
+
+</body>
